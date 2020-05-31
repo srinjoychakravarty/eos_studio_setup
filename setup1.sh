@@ -27,6 +27,7 @@ select yn in "Yes" "No"; do
         No ) exit;;
     esac
 done
+sudo apt install git -y
 echo "Installed Docker prerequisites successfully!"
 echo "Adding Docker’s official GPG key..."
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
@@ -39,7 +40,7 @@ sudo usermod -aG docker $USER
 echo "System needs to reboot...Please run setup2.sh after restart! [recommended]"
 select yn in "Yes" "No"; do
     case $yn in
-    	Reboot ) sudo reboot; break;;
-        No Reboot ) exit;;
+    	Yes ) sudo reboot; break;;
+        No ) exit;;
     esac
 done

@@ -14,6 +14,13 @@ select yn in "Yes" "No"; do
         No ) exit;;
     esac
 done
+echo "Install system smart contracts v1.9.1 that provide basic functions for the EOSIO blockchain? [recommended]"
+select yn in "Yes" "No"; do
+    case $yn in
+    	Yes ) git clone --branch v1.9.1 --single-branch https://github.com/EOSIO/eosio.contracts eosio.contracts; break;;
+        No ) exit;;
+    esac
+done
 echo "Download EOS Studio? [recommended]"
 select yn in "Yes" "No"; do
     case $yn in
